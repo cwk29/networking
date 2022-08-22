@@ -20,7 +20,7 @@ terraform {
     organization = "wortech"
 
     workspaces {
-      name = "gh-actions"
+      name = "gh-actions-demo"
     }
   }
 }
