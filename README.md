@@ -1,20 +1,22 @@
-# SSH into EC2
+# WorTech CORE
+
+## SSH into EC2
 
 ```sh
 ssh -i $HOME/Desktop/app-key-pair.pem centos@ec2-18-212-22-13.compute-1.amazonaws.com
 ```
 
-# Pre-requisites
+## Pre-requisites
 
 Install Terraform (Homebrew on OS X)
 
-```
+```bash
 $ brew tap hashicorp/tap
 $ brew install hashicorp/tap/terraform
 $ terraform -help
 ```
 
-# Setup
+## NGINX Example
 
 1. Create main.tff
 2. Initialize Terraform:
