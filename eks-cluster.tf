@@ -54,4 +54,10 @@ module "eks" {
       ]
     }
   }
+
+  aws_auth_roles = var.aws_roles
+
+  aws_auth_users = var.aws_users
+
+  aws_auth_accounts = var.aws_accounts
 }
