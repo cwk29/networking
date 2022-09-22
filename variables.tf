@@ -31,8 +31,8 @@ variable "aws_users" {
     groups   = list(string)
   }))
   default = [{
-    userarn  = "arn:aws:iam::907817574113:user/ckuykendall"
-    username = "Cody"
+    userarn  = "arn:aws:iam::060696402958:user/ckuykendall@wortechcorp.com"
+    username = "ckuykendall@wortechcorp.com"
     groups = [
       "system:masters"
     ]
@@ -42,6 +42,6 @@ variable "aws_users" {
 variable "aws_accounts" {
   description = "Additional AWS account numbers to add to the aws-auth configmap."
   type        = list(string)
-  default     = ["907817574113"]
+  default     = ["060696402958"]
 }
 
