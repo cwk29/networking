@@ -14,6 +14,12 @@ provider "aws" {
 
 data "aws_availability_zones" "available" {}
 
+# The following generates a unique name to use for the cluster_name
+resource "random_uuid" "eks_id" {
+}
+
 locals {
-  cluster_name = "wortech-eks-dev"
+  # In some cases when applying changes, the aws provider will attempt to create a new cluster with the new state before deleting the old one.  This requires the cluster name to be unique.
+  # Avoids this Error: error creating EKS Cluster (wortech-eks-dev): ResourceInUseException: Cluster already exists with name: wortech-eks-dev
+  cluster_name = "wortech-${random_uuid.eks_id.result}-dev"
 }
