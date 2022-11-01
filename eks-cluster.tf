@@ -24,8 +24,8 @@ module "eks" {
       instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 3
-      desired_size = 2
+      max_size     = 2
+      desired_size = 1
 
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
@@ -39,7 +39,7 @@ module "eks" {
     two = {
       name = "node-group-2"
 
-      instance_types = ["t3.medium"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 2
@@ -55,9 +55,29 @@ module "eks" {
     }
   }
 
+  # OIDC Identity provider
+  # cluster_identity_providers = {
+  #   sts = {
+  #     client_id = "sts.amazonaws.com"
+  #   }
+  # }
+
+  # aws-auth configmap
+  manage_aws_auth_configmap = true
+
   aws_auth_roles = var.aws_roles
 
   aws_auth_users = var.aws_users
 
   aws_auth_accounts = var.aws_accounts
 }
+
+# resource "aws_eks_identity_provider_config" "example" {
+#   cluster_name = aws_eks_cluster.example.name
+
+#   oidc {
+#     client_id                     = "your client_id"
+#     identity_provider_config_name = "example"
+#     issuer_url                    = "your issuer_url"
+#   }
+# }

@@ -18,7 +18,7 @@ $ terraform -help
 
 ## NGINX Example
 
-1. Create main.tff
+1. Create main.tf
 2. Initialize Terraform:
 
 ```sh
